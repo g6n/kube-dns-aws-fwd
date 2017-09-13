@@ -7,5 +7,6 @@ RUN apt-get update && \
 
 COPY rootupd.cron /tmp/ 
 COPY ukntp.conf /etc/ntp.conf
-    
+COPY named.conf.options /etc/bind/named.conf.options
+
 CMD touch /var/lib/dhcp/dhcpd.leases && crontab /tmp/rootupd.cron && tail -f /var/lib/dhcp/dhcpd.leases
